@@ -1,0 +1,88 @@
+body {
+	
+}
+.banner {
+	width: 100%;
+	height: 93vh;
+	background: linear-gradient(rgba(224, 224, 235,0.4), rgba(224, 224, 235,0.4)), url("../img/banner.jpg");
+	background-size:cover;
+/* 	color: #30273d; */
+	background-size: cover;
+}
+
+/*side bar*/
+@media only screen and (max-width: 600px) {
+	.sidebar {
+		width: 80% !important;
+		height: 100vh;
+		position: fixed;
+		padding-top: 45px;
+	}
+	.content {
+		margin-left: 0% !important;
+	}
+}
+
+.sidebar {
+	
+	background:white;
+	width: 18%;
+	height: 100%;
+	position: fixed;
+	padding-top: 45px;
+	z-index: 9999999999999999999999;
+}
+
+.sidebar a {
+	display: block;
+	width: 100%;
+	padding: 10px 25px;
+	color: black;
+}
+
+/* rgb(0, 0, 0) query ko matlab hami different style use gardai chhau for different size of screens   */
+.sidebar a:hover {
+	background:#d5d5d5;
+	text-decoration: none;
+	color: #000000;
+}
+
+.sidebar .divider {
+	height: .5px;
+	width: 100%;
+	background: #400040;
+	margin-top: 10px;
+}
+
+.content {
+	margin-left: 20%;
+}
+
+
+.sidebar .crossbtn{
+	
+	position: absolute;
+	color:#000000;
+	top: 0px;
+	right: 35px;
+	font-size: 36px;
+	cursor: pointer;
+}
+
+.banner1 {
+	
+		background:#d5d5d5;
+	
+	
+	
+}
+
+.my_profile_photo{
+	
+	width: 30px;
+	height: 30px;
+	object-fit:cover;
+	border-radius:50%;
+}
+
+

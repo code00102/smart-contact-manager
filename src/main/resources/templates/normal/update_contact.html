@@ -1,0 +1,184 @@
+<!doctype html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org"
+	th:replace="normal/base::layout(~{::section})">
+<head>
+<meta charset="UTF-8" />
+<title th:text="${title}"></title>
+</head>
+<body>
+
+	<section class="banner1">
+
+
+		<div class="card mr-3 ml-3">
+
+
+			<div class="card-body text-center">
+
+
+			<h1 class="text-center text-black">Update your contact</h1>
+
+				<div th:if="${session.message}"
+					th:classappend="${' alert-'+session.message.type}"
+					class="text-center ml-5 mr-5 alert" role="alert">
+
+					<p th:text="${session.message.content}"></p>
+					<th:block th:text="${#session.removeAttribute('message')}"></th:block>
+
+				</div>
+
+				<div class="container-fluid mt-1">
+
+					<div class="row">
+
+						<div class="col-md-10 offset-md-1">
+
+							<form novalidate action="#" th:object="${contact}"
+								enctype="multipart/form-data" method="POST"
+								th:action="@{/user/on_update_submit}" class="mt-2">
+								
+								
+								<input type="hidden" th:value="${contact.contact_id}" name = "contact_id" />
+
+
+								<!--First name  -->
+								<div class="input-group">
+
+									<div class="input-group-prepend">
+
+										<div class="input-group-text mr-3">
+
+											<i class="fas fa-user"></i>
+
+										</div>
+
+									</div>
+
+									<input type="text" id="firstname" name="name"
+										th:value="${contact.name}" class="form-control" />
+								</div>
+
+
+								<!-- nickname  -->
+								<div class="input-group mt-3">
+									<div class="input-group-prepend">
+										<div class="input-group-text mr-3">
+											<i class="fa fa-plus"></i>
+
+										</div>
+
+									</div>
+
+									<input type="text" id="nickname" name="nickName"
+										th:value="${contact.nickName}" class="form-control" />
+								</div>
+
+
+								<!-- email  -->
+								<div class="input-group mt-3">
+									<div class="input-group-prepend">
+										<div class="input-group-text mr-3">
+											<section style="font-style: bold;">@</section>
+										</div>
+
+									</div>
+
+									<input type="email" id="email" name="email"
+										th:value="${contact.email}" class="form-control" />
+								</div>
+
+								<!-- email  -->
+								<div class="input-group mt-3">
+									<div class="input-group-prepend">
+										<div class="input-group-text mr-3">
+											<section style="font-style: bold;">
+												<i class="fas fa-phone-volume"></i>
+
+											</section>
+										</div>
+
+									</div>
+
+									<input type="text" id="phone" name="phone"
+										th:value="${contact.phone}" class="form-control" />
+								</div>
+
+
+								<!-- email  -->
+								<div class="input-group mt-3">
+									<div class="input-group-prepend">
+										<div class="input-group-text mr-3">
+											<section style="font-style: bold;">
+												<i class="fas fa-briefcase"></i>
+
+											</section>
+										</div>
+
+									</div>
+
+									<input type="text" id="work" name="work"
+										th:value="${contact.work}" class="form-control" />
+								</div>
+
+								<!-- description  -->
+								<div class="form-group mt-3">
+									<textarea name="description" id="mytextarea" 
+										rows="10" class="form-control" th:text="${contact.description}"
+										
+										>
+										
+									
+								</textarea>
+								</div>
+								
+								<!-- Show images -->
+									
+								<div class="container">
+								
+									<img style="width:250px;height:250px" class = "img-fluid my_profile_photo" src="" th:src="@{'/img/'+${contact.photo}}" alt="" />
+								</div>	
+									
+								
+								<!-- image field  -->
+								<div class="input-group mt-3 custom-file">
+									<input type="file" name="profileImage" />
+								</div>
+
+
+
+								<div class="mybutton text-center mt-3">
+
+									<button class=" btn btn-outline-primary">Update</button>
+
+								</div>
+
+
+							</form>
+
+						</div>
+
+					</div>
+
+				</div>
+
+			</div>
+
+		</div>
+
+		<script
+			src="https://cdn.tiny.cloud/1/no-api-key/tinymce/5/tinymce.min.js"
+			referrerpolicy="origin"></script>
+		<script>
+      tinymce.init({
+        selector: '#mytextarea'
+      });
+    </script>
+
+			
+		
+
+
+	</section>
+
+</body>
+</html>
